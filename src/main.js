@@ -126,7 +126,7 @@ function renderTopbar() {
     <header class="app-topbar">
       <div class="mx-auto flex w-[min(100%,1440px)] items-center justify-between gap-4 px-4 py-4 md:px-6">
         <div class="flex min-w-0 items-center gap-3">
-          <span class="ui-span grid h-10 w-10 shrink-0 place-items-center rounded-control bg-accent text-sm font-bold text-white">QC</span>
+          <span class="ui-span chat-badge grid h-10 w-10 shrink-0 place-items-center rounded-control text-sm font-bold text-white">QC</span>
           <span class="ui-span truncate text-xl font-semibold text-ink">Quiz Chat</span>
         </div>
         <div class="flex items-center gap-2">
@@ -162,7 +162,7 @@ function renderSidebar() {
 
   return `
     <aside class="order-2 space-y-4 md:order-none">
-      <section class="panel p-5">
+      <section class="panel carnival-card quiz-identity p-5">
         <h1 class="ui-title text-2xl leading-tight">${escapeHtml(quiz.title)}</h1>
         <p class="mt-3 text-sm leading-6 text-ink-muted">${escapeHtml(quiz.description)}</p>
       </section>
@@ -189,7 +189,7 @@ function renderSidebar() {
         </div>
       </section>
 
-      <section class="panel overflow-hidden">
+      <section class="panel carnival-card overflow-hidden">
         <div class="flex items-center justify-between gap-3 px-4 py-4">
           <h2 class="ui-title text-base">История</h2>
           <span class="ui-span text-sm text-ink-muted">Средний ${stats.averageScore}</span>
@@ -245,7 +245,7 @@ function renderMainPanel() {
         : renderIntro();
 
   return `
-    <main class="panel order-1 overflow-hidden md:order-none md:min-h-[calc(100vh-112px)]">
+    <main class="panel carnival-stage order-1 overflow-hidden md:order-none md:min-h-[calc(100vh-112px)]">
       <div class="border-b border-line px-5 py-4">
         <div class="flex flex-wrap items-center justify-between gap-3">
           <div>
@@ -268,8 +268,8 @@ function renderIntro() {
   return `
     <section class="mx-auto max-w-3xl">
       <div class="mb-8 flex items-start gap-4">
-        <span class="ui-span grid h-12 w-12 shrink-0 place-items-center rounded-control bg-accent text-sm font-bold text-white">QC</span>
-        <div class="subpanel max-w-xl px-5 py-4">
+        <span class="ui-span chat-badge grid h-12 w-12 shrink-0 place-items-center rounded-control text-sm font-bold text-white">QC</span>
+        <div class="subpanel festival-note max-w-xl px-5 py-4">
           <div class="flex items-center gap-3">
             <span class="ui-span text-sm font-semibold text-ink">Quiz Chat</span>
             <span class="ui-span text-sm text-ink-muted">${formatDate(new Date())}</span>
@@ -278,7 +278,7 @@ function renderIntro() {
         </div>
       </div>
 
-      <div class="subpanel px-5 py-5 md:px-6">
+      <div class="subpanel festival-note quiz-ticket px-5 py-5 md:px-6">
         <h2 class="ui-title text-2xl leading-tight">${escapeHtml(quiz.title)}</h2>
         <p class="mt-3 max-w-xl text-sm leading-6 text-ink-muted">${getQuestions().length} коротких вопросов и аккуратный финальный счёт.</p>
         <label class="mt-6 block">
@@ -304,8 +304,8 @@ function renderQuestion() {
   return `
     <section class="mx-auto max-w-4xl">
       <div class="mb-8 flex items-start gap-4">
-        <span class="ui-span grid h-12 w-12 shrink-0 place-items-center rounded-control bg-accent text-sm font-bold text-white">QC</span>
-        <div class="subpanel max-w-xl px-5 py-4">
+        <span class="ui-span chat-badge grid h-12 w-12 shrink-0 place-items-center rounded-control text-sm font-bold text-white">QC</span>
+        <div class="subpanel festival-note max-w-xl px-5 py-4">
           <div class="flex items-center gap-3">
             <span class="ui-span text-sm font-semibold text-ink">Quiz Chat</span>
             <span class="ui-span text-sm text-ink-muted">${formatDate(new Date())}</span>
@@ -314,7 +314,7 @@ function renderQuestion() {
         </div>
       </div>
 
-      <div class="subpanel px-5 py-5 md:px-6">
+      <div class="subpanel festival-note quiz-ticket px-5 py-5 md:px-6">
         <span class="ui-span text-sm text-ink-muted">Вопрос ${state.currentIndex + 1}</span>
         <h2 class="ui-title mt-3 text-2xl leading-tight">${escapeHtml(question.text)}</h2>
         <div class="mt-6 grid gap-3">
@@ -352,8 +352,8 @@ function renderResult() {
   return `
     <section class="mx-auto max-w-4xl">
       <div class="mb-8 flex items-start gap-4">
-        <span class="ui-span grid h-12 w-12 shrink-0 place-items-center rounded-control bg-accent text-sm font-bold text-white">QC</span>
-        <div class="subpanel max-w-xl px-5 py-4">
+        <span class="ui-span chat-badge grid h-12 w-12 shrink-0 place-items-center rounded-control text-sm font-bold text-white">QC</span>
+        <div class="subpanel festival-note max-w-xl px-5 py-4">
           <div class="flex items-center gap-3">
             <span class="ui-span text-sm font-semibold text-ink">Quiz Chat</span>
             <span class="ui-span text-sm text-ink-muted">${formatDate(result.createdAt)}</span>
@@ -362,7 +362,7 @@ function renderResult() {
         </div>
       </div>
 
-      <div class="subpanel px-5 py-5 md:px-6">
+      <div class="subpanel festival-note quiz-ticket px-5 py-5 md:px-6">
         <span class="ui-span text-sm text-ink-muted">${escapeHtml(result.playerName)}</span>
         <h2 class="ui-title mt-3 text-3xl leading-tight">${escapeHtml(result.resultTitle)}</h2>
         <p class="mt-4 max-w-2xl text-base leading-7 text-ink-muted">${escapeHtml(result.resultDescription)}</p>
