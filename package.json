@@ -7,12 +7,9 @@
     "node": ">=22.0.0"
   },
   "scripts": {
-    "dev": "node scripts/dev.js",
-    "dev:client": "vite --host 127.0.0.1",
-    "dev:api": "node --watch server/index.js",
+    "dev": "vite --host 127.0.0.1",
     "build": "vite build",
-    "preview": "npm run build && npm start",
-    "start": "node server/index.js",
+    "preview": "vite preview --host 127.0.0.1",
     "test": "node --test"
   },
   "dependencies": {},

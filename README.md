@@ -1,6 +1,17 @@
 # Quiz Chat
 
-Лёгкий full-stack quiz-chat: Vite + Tailwind на клиенте, Node API и файловая JSON-БД на сервере.
+Статический quiz-chat на Vite + Tailwind. Проект деплоится только через GitHub Pages и не требует Render, backend, карты, внешней базы или секретов.
+
+## Что важно
+
+GitHub Pages отдаёт только статические файлы. Поэтому общая серверная история прохождений между разными пользователями недоступна без внешнего backend.
+
+В этой версии:
+
+- вопросы лежат в `data/seed.json`;
+- приложение собирается в статический `dist`;
+- результаты и имя участника сохраняются локально в браузере через `localStorage`;
+- демо-история из seed показывается всем, а новые попытки видит только текущий браузер.
 
 ## Локальный запуск
 
@@ -9,33 +20,39 @@ npm install
 npm run dev
 ```
 
-Frontend откроется на `http://127.0.0.1:5173`, API работает на `http://127.0.0.1:3000`.
+Локальный URL:
+
+```text
+http://127.0.0.1:5173
+```
 
 ## Проверки
 
 ```bash
 npm test
 npm run build
-npm start
+npm run preview
 ```
 
-После `npm start` production-сборка доступна на `http://localhost:3000`.
+## Деплой на GitHub Pages
 
-## Данные
+Деплой описан в `.github/workflows/pages.yml`.
 
-Первый запуск создаёт `data/db.json` из `data/seed.json`. В git хранится только seed, runtime-БД игнорируется.
+После каждого push в `main` GitHub Actions:
 
-Для деплоя можно задать:
+1. устанавливает зависимости;
+2. запускает тесты;
+3. собирает проект;
+4. публикует `dist` в GitHub Pages.
 
-```bash
-DATA_DIR=/var/data
+В настройках репозитория нужно один раз включить Pages через GitHub Actions:
+
+```text
+Settings -> Pages -> Build and deployment -> Source -> GitHub Actions
 ```
 
-## Автодеплой
+После успешного workflow сайт будет доступен по адресу:
 
-В репозитории есть:
-
-- `render.yaml` для Render Blueprint с persistent disk на `/var/data`.
-- `.github/workflows/ci-deploy.yml` для тестов, сборки и опционального Render Deploy Hook.
-
-Чтобы включить deploy hook через GitHub Actions, добавь секрет `RENDER_DEPLOY_HOOK_URL` в настройках GitHub Actions.
+```text
+https://StepanDrogin.github.io/Quiz-js/
+```

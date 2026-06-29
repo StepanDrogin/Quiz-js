@@ -1,4 +1,11 @@
 import "./styles.css";
+import seed from "../data/seed.json";
+import {
+  createAttempt,
+  getPlayerName,
+  getPublicQuiz,
+  savePlayerName
+} from "./quiz-store.js";
 
 const app = document.querySelector("#app");
 const answerLetters = ["A", "B", "C", "D", "E", "F"];
@@ -12,7 +19,7 @@ const state = {
   currentIndex: 0,
   selectedAnswerId: "",
   answers: {},
-  playerName: localStorage.getItem("quiz-chat-player") || "",
+  playerName: getPlayerName(window.localStorage),
   submitting: false,
   submitError: "",
   result: null
@@ -72,32 +79,15 @@ function getProgress() {
   return Math.round(((state.currentIndex + 1) / questions.length) * 100);
 }
 
-async function api(path, options = {}) {
-  const response = await fetch(path, {
-    headers: {
-      "Content-Type": "application/json",
-      ...(options.headers || {})
-    },
-    ...options
-  });
-
-  if (!response.ok) {
-    const payload = await response.json().catch(() => ({}));
-    throw new Error(payload.message || "Request failed");
-  }
-
-  return response.json();
-}
-
-async function loadQuiz() {
+function loadQuiz() {
   state.loading = true;
   state.error = "";
   render();
 
   try {
-    state.data = await api("/api/quiz");
-  } catch (error) {
-    state.error = "Не удалось загрузить квиз. Проверь, что backend запущен.";
+    state.data = getPublicQuiz(seed, window.localStorage);
+  } catch {
+    state.error = "Не удалось загрузить локальные данные квиза.";
   } finally {
     state.loading = false;
     render();
@@ -450,17 +440,14 @@ async function submitAttempt() {
         answerId
       }))
     };
-    const response = await api("/api/attempts", {
-      method: "POST",
-      body: JSON.stringify(payload)
-    });
+    const response = createAttempt(seed, payload, window.localStorage);
 
     state.result = response.attempt;
     state.data.attempts = response.attempts;
     state.data.stats = response.stats;
     state.view = "result";
-    localStorage.setItem("quiz-chat-player", state.playerName);
-  } catch (error) {
+    savePlayerName(window.localStorage, state.playerName);
+  } catch {
     state.submitError = "Не удалось сохранить результат. Попробуй ещё раз.";
   } finally {
     state.submitting = false;
@@ -495,7 +482,7 @@ app.addEventListener("click", async (event) => {
   const action = target.dataset.action;
 
   if (action === "retry") {
-    await loadQuiz();
+    loadQuiz();
     return;
   }
 
