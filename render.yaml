@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: quiz-chat
+    runtime: node
+    plan: starter
+    branch: main
+    autoDeploy: true
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 24
+      - key: DATA_DIR
+        value: /var/data
+    disk:
+      name: quiz-chat-data
+      mountPath: /var/data
+      sizeGB: 1

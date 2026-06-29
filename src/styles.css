@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    min-height: 100%;
+    background: theme("colors.paper");
+    color: theme("colors.ink");
+    font-family: theme("fontFamily.sans");
+    letter-spacing: 0;
+  }
+
+  body {
+    min-height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  button,
+  input {
+    font: inherit;
+  }
+
+  ::selection {
+    background: theme("colors.accent-muted");
+    color: theme("colors.accent");
+  }
+}
+
+@layer components {
+  .app-shell {
+    @apply min-h-screen bg-paper text-ink;
+  }
+
+  .app-topbar {
+    @apply border-b border-line bg-surface;
+  }
+
+  .layout-grid {
+    @apply mx-auto grid w-[min(100%,1440px)] gap-4 px-4 py-4 md:grid-cols-[330px_minmax(0,1fr)] md:px-6;
+  }
+
+  .panel {
+    @apply rounded-panel border border-line bg-surface shadow-panel;
+  }
+
+  .subpanel {
+    @apply rounded-control border border-line bg-surface;
+  }
+
+  .ui-title {
+    @apply font-semibold tracking-normal text-ink;
+  }
+
+  .ui-span {
+    @apply inline-flex items-center;
+  }
+
+  .ui-button {
+    @apply inline-flex items-center justify-center gap-2 rounded-control border border-line px-4 py-2 text-sm font-semibold leading-none shadow-control transition-colors duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .button-primary {
+    @apply border-accent bg-accent text-white;
+  }
+
+  .button-primary:hover:not(:disabled) {
+    background: #1b315b;
+  }
+
+  .button-secondary {
+    @apply border-line bg-surface text-ink;
+  }
+
+  .button-secondary:hover:not(:disabled) {
+    background: #f8fafc;
+  }
+
+  .button-quiet {
+    @apply border-transparent bg-transparent text-ink-muted shadow-none;
+  }
+
+  .button-quiet:hover:not(:disabled) {
+    @apply bg-accent-muted text-accent;
+  }
+
+  .answer-button {
+    @apply flex w-full items-start gap-3 rounded-control border border-line bg-surface px-4 py-3 text-left text-sm leading-6 text-ink transition-colors duration-150;
+  }
+
+  .answer-button:hover {
+    @apply border-accent bg-accent-muted;
+  }
+
+  .answer-button-selected {
+    @apply border-accent bg-accent-muted;
+  }
+
+  .answer-marker {
+    @apply mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-control border border-line text-xs font-semibold text-ink-muted;
+  }
+
+  .answer-button-selected .answer-marker {
+    @apply border-accent bg-accent text-white;
+  }
+
+  .metric-card {
+    @apply rounded-control border border-line bg-surface p-4;
+  }
+
+  .history-row {
+    @apply border-t border-line px-4 py-3 first:border-t-0;
+  }
+
+  .input-field {
+    @apply h-11 w-full rounded-control border border-line bg-surface px-3 text-sm text-ink outline-none transition-colors duration-150 placeholder:text-ink-muted focus:border-accent focus:ring-2 focus:ring-accent-muted;
+  }
+
+  .progress-track {
+    @apply h-2 overflow-hidden rounded-control bg-accent-muted;
+  }
+
+  .progress-bar {
+    @apply h-full rounded-control bg-accent transition-[width] duration-300;
+  }
+}

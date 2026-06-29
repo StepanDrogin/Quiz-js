@@ -1,0 +1,159 @@
+{
+  "quiz": {
+    "id": "personal-quiz",
+    "title": "Насколько хорошо ты меня знаешь?",
+    "description": "Личный квиз для друзей в формате короткого чата.",
+    "totalLabel": "10 вопросов",
+    "ownerName": "Стёпа"
+  },
+  "results": [
+    {
+      "minScore": 0,
+      "title": "Пока мимо",
+      "description": "Ты только начинаешь собирать картину. Можно пройти ещё раз и забрать больше очков."
+    },
+    {
+      "minScore": 4,
+      "title": "Уже похоже на знакомство",
+      "description": "Есть попадания, есть сомнения. Уровень друга, который слушал через раз."
+    },
+    {
+      "minScore": 7,
+      "title": "Сильный результат",
+      "description": "Ты явно в теме и помнишь больше деталей, чем обычный участник беседы."
+    },
+    {
+      "minScore": 10,
+      "title": "Абсолютное знание",
+      "description": "Все ответы на месте. Либо ты очень внимательный друг, либо у тебя отличный архив памяти."
+    }
+  ],
+  "questions": [
+    {
+      "id": "study",
+      "text": "На кого я учусь?",
+      "answers": [
+        { "id": "engineer", "text": "Инженер", "value": 0 },
+        { "id": "historian", "text": "Историк", "value": 0 },
+        { "id": "lawyer", "text": "Юрист", "value": 1 },
+        { "id": "advertiser", "text": "Рекламщик", "value": 0 }
+      ]
+    },
+    {
+      "id": "strong-topic",
+      "text": "В каких темах я чаще всего уверен за игровым столом?",
+      "answers": [
+        { "id": "internet-culture", "text": "Интернет-культура", "value": 1 },
+        { "id": "painting", "text": "Живопись", "value": 0 },
+        { "id": "history", "text": "История", "value": 0 },
+        { "id": "soviet-films", "text": "Советские фильмы", "value": 0 }
+      ]
+    },
+    {
+      "id": "genius",
+      "text": "Кого я считаю непризнанным гением и самой загадочной личностью XXI века?",
+      "answers": [
+        { "id": "misha", "text": "Миша", "value": 0 },
+        { "id": "zhenya", "text": "Женя", "value": 0 },
+        { "id": "vanya", "text": "Ваня", "value": 1 },
+        { "id": "sasha", "text": "Саша", "value": 0 }
+      ]
+    },
+    {
+      "id": "free-time",
+      "text": "Чем я увлекаюсь в свободное от безделья время?",
+      "answers": [
+        { "id": "football", "text": "Футбол", "value": 0 },
+        { "id": "gym", "text": "Качалка", "value": 0 },
+        { "id": "series", "text": "Сериалы", "value": 0 },
+        { "id": "programming", "text": "Программирование", "value": 1 }
+      ]
+    },
+    {
+      "id": "oleg",
+      "text": "Почему Олег всегда всё замечает?",
+      "answers": [
+        { "id": "attention", "text": "У него отличная внимательность", "value": 1 },
+        { "id": "memory", "text": "Он запоминает детали", "value": 1 },
+        { "id": "logic", "text": "Он быстро складывает факты", "value": 1 },
+        { "id": "all-info", "text": "Он просто в курсе всего", "value": 1 }
+      ]
+    },
+    {
+      "id": "too-serious",
+      "text": "Что я чаще всего называю слишком душным занятием?",
+      "answers": [
+        { "id": "books", "text": "Книжки", "value": 1 },
+        { "id": "painting", "text": "Живопись", "value": 0 },
+        { "id": "fiction", "text": "Художественная литература", "value": 0 },
+        { "id": "arthouse", "text": "Артхаус", "value": 1 }
+      ]
+    },
+    {
+      "id": "why",
+      "text": "Зачем ты проходишь этот тест?",
+      "answers": [
+        { "id": "asked", "text": "Потому что меня попросил Стёпа", "value": 0 },
+        { "id": "faster", "text": "Так быстрее, чем спорить", "value": 0 },
+        { "id": "interest", "text": "Мне правда интересно проверить себя", "value": 1 },
+        { "id": "first-two", "text": "Первые два варианта вместе", "value": 0 }
+      ]
+    },
+    {
+      "id": "film",
+      "text": "Какой фильм я считаю одним из лучших?",
+      "answers": [
+        { "id": "interstellar", "text": "Интерстеллар", "value": 1 },
+        { "id": "stalker", "text": "Сталкер Тарковского", "value": 0 },
+        { "id": "best-movie", "text": "Самый лучший фильм", "value": 0 },
+        { "id": "star-wars", "text": "Звёздные войны", "value": 0 }
+      ]
+    },
+    {
+      "id": "game",
+      "text": "Что я люблю делать в своей игре?",
+      "answers": [
+        { "id": "win", "text": "Побеждать", "value": 1 },
+        { "id": "appeals", "text": "Разбирать чужие апелляции", "value": 1 },
+        { "id": "lose", "text": "Проигрывать", "value": 0 },
+        { "id": "guess", "text": "Угадывать необычные вопросы", "value": 0 }
+      ]
+    },
+    {
+      "id": "final",
+      "text": "Последний вопрос: кого я чаще всего переигрываю?",
+      "answers": [
+        { "id": "nikita", "text": "Никиту", "value": 1 },
+        { "id": "opponents", "text": "Сильных соперников", "value": 1 },
+        { "id": "random", "text": "Случайных игроков", "value": 0 },
+        { "id": "cheaters", "text": "Шулеров", "value": 0 }
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "id": "seed-1",
+      "playerName": "Анна Иванова",
+      "score": 8,
+      "totalScore": 10,
+      "resultTitle": "Сильный результат",
+      "createdAt": "2026-06-28T14:32:00.000Z"
+    },
+    {
+      "id": "seed-2",
+      "playerName": "Дмитрий Петров",
+      "score": 6,
+      "totalScore": 10,
+      "resultTitle": "Уже похоже на знакомство",
+      "createdAt": "2026-06-28T13:15:00.000Z"
+    },
+    {
+      "id": "seed-3",
+      "playerName": "Мария Соколова",
+      "score": 9,
+      "totalScore": 10,
+      "resultTitle": "Сильный результат",
+      "createdAt": "2026-06-27T21:48:00.000Z"
+    }
+  ]
+}
